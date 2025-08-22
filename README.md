@@ -147,7 +147,9 @@ Here’s the detailed outline of each article with conceptual + project details:
 ***
 
 ## 9. Business Use Case #1: Customer Support Agent
-
+- Add What is RAg, Agentic Rag v/s Gen AI rag
+- what type of rag this is
+- Different types of rags
 ### Concepts Covered
 
 - Customer support automation with agents
