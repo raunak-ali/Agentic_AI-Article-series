@@ -13,15 +13,22 @@ To a student or fresher, it’s helpful to imagine them as a much smarter autoco
 
 ***
 
-## 🔹 2. How Do LLMs Work (High-level Architecture)
+## 🔹 2. How Do LLMs Work (Architecture Basics)
 
-Most modern LLMs are based on the Transformer architecture, introduced by Google in 2017.  
-Here’s the basic idea:
-# TODO:- Add more to the architecture
-- Text is broken into tokens (smaller chunks of words or subwords).
-- The model uses self-attention to figure out how those tokens relate to each other.  
-  For example, in the sentence “The bank by the river”, the model can correctly link “bank” with riverbank, not finance.
-- By stacking many of these attention layers, the model builds a nuanced understanding of language and can generate coherent, context-aware responses.
+At the core of most modern LLMs is the **Transformer architecture** (Vaswani et al., 2017).  
+Unlike older models that processed text one word at a time, transformers look at whole sequences in parallel and figure out which words matter most to each other.
+
+Here are the essentials:
+
+- **Embeddings** – Words (or tokens) are turned into numerical vectors that capture meaning.  
+- **Positional Encoding** – Adds information about word order (since transformers don’t read sequentially by default).  
+- **Self-Attention** – Each word decides which other words in the sentence it should *pay attention* to.  
+- **Multi-Head Attention** – Multiple attention mechanisms run in parallel, capturing different patterns (syntax, context, semantics).  
+- **Feed-Forward Layers + Residuals** – Nonlinear layers stacked deep, with shortcut connections to keep training stable.  
+- **Output Layer** – Predicts the most likely next token, repeating the process to generate full sentences.  
+
+That’s the backbone: a stack of transformer blocks working together, with **more layers = more power**.
+
 
 📖 Want to dig deeper? Microsoft has a great explainer here: Large Language Models Explained
 
