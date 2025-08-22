@@ -12,23 +12,23 @@ Here’s the detailed outline of each article with conceptual + project details:
 
 ***
 
-## 1. Intro to Agentic AI, LangGraph & Hugging Face OSS Models
-
+## 1. Intro to Gen AI,LLMS(Hugging Face OSS Models), installation and setup of Langchain Agents and Langraph 
+(What is GenAI) → (What powers it = LLMs) → (How to use it effectively = prompts) → (Where it’s headed = agents) → (How to set up your own environment).
 ### Concepts Covered
 
-- What is Generative AI (text, code, multimodal)
-- Difference between Prompting vs Agents vs Agentic AI
+- What is Generative AI (intro,components,basics)
+- Intro to LLMs with Hugging face Open-source(OSS) models : Falcon, Mistral, LLaMA-based, GPT4All (free + local)
 - Basics of Prompt Engineering (zero-shot, few-shot, role prompting)
-- Hugging Face OSS models: Falcon, Mistral, LLaMA-based, GPT4All (free + local)
+- Transition from Gen AI to Agentic AI
 - Installing LangChain, LangGraph, Hugging Face
 
 ### Implementation & Project
 
-- Build a Hello World Generator Agent that:
-    - Takes input like “Python” or “German”
-    - Generates Hello World in that language/programming syntax
-    - Add it as a node in LangGraph
-    - Visualize workflow in LangGraph Studio
+- Build a Hello World Generator Langchain Agent that:
+    - Takes input like “Python” and “German”
+    - Generates Hello World in that NLP Language and Programming Language
+    - Invoking Langchain Agents Manually
+    
 
 ***
 
