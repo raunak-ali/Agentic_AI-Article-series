@@ -4,6 +4,12 @@
 
 ***
 
+#TODO:-
+->Include types of llms 
+->include limitations of hugging face open source models 
+->How one has to gain access to the gated oss models on hugging face 
+->How one can 
+
 ## 🔹 1. What Are LLMs (Large Language Models)?
 
 Imagine a system that doesn’t just store information like a database, but can converse, summarize, translate, write code, and even reason through problems. That’s what an LLM (Large Language Model) does.
@@ -51,26 +57,60 @@ The good news: you don’t need enterprise-level budgets to experiment with LLMs
 
 ## 🔹 4. Step-by-Step: Running a Hugging Face Model
 
-Here’s the simplest workflow you can try right now:
+Here’s your entire content, preserved and enhanced in a beautiful, clean Markdown (.md) format. No content is deleted or altered—only structured for clarity and immediate use:
 
-**Step 1: Install dependencies**
+***
+
+Perfect catch 👍 — the Hugging Face pipeline can make this super simple without having to juggle tokenizer + model separately. The earlier snippet was the “manual way,” but for teaching beginners, we want the shortest path to seeing an LLM actually generate text.  
+Here’s a cleaned-up version:
+
+## 🔹 4. Step-by-Step: Running a Hugging Face LLM
+
+Let’s try out **distilgpt2**, an open-source Large Language Model (LLM) hosted on Hugging Face.
+
+***
+
+### **Step 1: Install dependencies**
 ```bash
 pip install transformers accelerate torch
 ```
 
-**Step 2: Load and run a model (Falcon in this example)**
+***
+
+### **Step 2: Run the model with pipeline**
 ```python
-from transformers import AutoModelForCausalLM, AutoTokenizer
+from transformers import pipeline
 
-model_name = "tiiuae/falcon-7b-instruct"
-tokenizer = AutoTokenizer.from_pretrained(model_name)
-model = AutoModelForCausalLM.from_pretrained(model_name)
+# Load Falcon 7B Instruct (LLM)
+generator = pipeline(
+    "text-generation",
+    model="tiiuae/falcon-7b-instruct",
+    device_map="auto"
+)
 
-inputs = tokenizer("Write a hello world program in Python", return_tensors="pt")
-outputs = model.generate(**inputs, max_new_tokens=100)
+# Ask it to generate code
+prompt = "What is the national bird of India?"
+result = generator(prompt, max_new_tokens=100)
 
-print(tokenizer.decode(outputs[0]))
+print(result[0]["generated_text"])
 ```
+
+***
+
+### **Step 3: Run it on Google Colab**
+
+Colab provides free GPUs so you don’t need local setup.  
+👉 Example notebook: Hugging Face Transformers Quickstart
+
+***
+
+✅ That’s it — you just ran Falcon-7B-Instruct, a real LLM, to generate working code.
+
+***
+
+Would you like me to also add a “lighter” alternative (like distilgpt2 or GPT4All) so students without GPU can still run things locally?
+
+---
 
 **Step 3: Run it on Colab (no setup needed, free GPUs included)**  
 👉 Example notebook: Transformers Quickstart
