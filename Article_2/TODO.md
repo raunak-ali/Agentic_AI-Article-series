@@ -1,2 +1,3 @@
 ->Edit readMe an d refine the chapter Strcuuers
 ->update the practical with great fucking explanation on  each way
+->MAKE THE FUCKING PRACTICAL BASED ON THE LANGRAPGH STUDIO INSTEAD OF WHTEVER THE FUCK U HAVE DONE U IDIOTIC PEICE OF SHIT
