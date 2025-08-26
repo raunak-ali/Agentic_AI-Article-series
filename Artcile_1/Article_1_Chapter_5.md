@@ -32,7 +32,7 @@ Where LangChain gives you chains and tool usage, **LangGraph adds state machines
 
 ---
 
-## 🔹 3. Why This Tutorial Uses LangChain
+## 🔹 3. Why This Tutorial Uses LangChain And LangGraph
 
 In this series, our focus is **Agentic AI**. LangChain & LangGraph give us:
 

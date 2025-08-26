@@ -1,0 +1,2 @@
+->Edit readMe an d refine the chapter Strcuuers
+->update the practical with great fucking explanation on  each way
