@@ -82,8 +82,8 @@ Here’s the detailed outline of each article with conceptual + project details:
     - Graph nodes: Input → Researcher → Writer → Output
 
 ***
-
-## 5. Hugging Face Models in LangGraph
+## MAYEB AS AN EXTRA CHAPER LATER LATER
+## . Hugging Face Models in LangGraph
 
 ### Concepts Covered
 
@@ -99,7 +99,7 @@ Here’s the detailed outline of each article with conceptual + project details:
 
 ***
 
-## 6. Adding Memory to Agents
+## 5. Adding Memory to Agents
 
 ### Concepts Covered
 
@@ -112,6 +112,8 @@ Here’s the detailed outline of each article with conceptual + project details:
 - Travel Planner Agent
     - User chats about preferences: “I like vegetarian food, budget-friendly trips.”
     - Agent remembers across turns and gives consistent recommendations
+
+***
 
 ***
 
@@ -145,6 +147,8 @@ Here’s the detailed outline of each article with conceptual + project details:
     - Input: PDF invoices → OCR extract → structured JSON (vendor, amount, date) → summary report
 
 ***
+# TODO:- Need add a module for MCP as well? 
+
 
 ## 9. Business Use Case #1: Customer Support Agent
 - Add What is RAg, Agentic Rag v/s Gen AI rag
