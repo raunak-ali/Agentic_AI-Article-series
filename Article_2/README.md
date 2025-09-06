@@ -95,3 +95,5 @@ Next: Tools + Multi-Agent Systems.
 Show how nodes can call external APIs, calculators, RAG pipelines.
 
 Transition: from single-agent graph → multi-agent collaboration.
+
+# Todo:-  Add Agent Types->Simple-Reflex,Model-based,Goal-based

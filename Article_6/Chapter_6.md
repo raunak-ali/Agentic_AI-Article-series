@@ -1,6 +1,8 @@
 ---
 
 # 🔹 Chapter 6: Integrating RAG into LangGraph (Core Chapter)
+# TODO:-Add A RAG architecture with Langraph where it choses a retrieval or maybe a vector db or maybe a LLm , SO we can show Rag archtecture Advantages with Langrapgh
+#Like how we can use Conditinal edges and Grapgh srtrcutures to make a SImple Langchain RAg to a more dynamic and better Rag in Langrph
 
 ### 1. Overview
 
