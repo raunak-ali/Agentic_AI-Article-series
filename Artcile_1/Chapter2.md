@@ -1,18 +1,19 @@
+# Article 1 :Intro to Gen AI,LLMS and LangChain Frameworks
+ ![Generative AI Diagram](https://drive.google.com/uc?export=view&id=1HEE3cUyZTwsChoNWW2KUktDiyy0I2gjq)
+
+## Chapter B:Introduction to LLMs And Free LLM Resources
 
 
-# Chapter 2: Introduction to LLMs And Free LLM Resources
 
-
-
-##  1. What Are LLMs (Large Language Models)?
+###  **1. What Are LLMs (Large Language Models)?**
 
 Imagine a system that doesn’t just store information like a database, but can converse, summarize, translate, write code, and even reason through problems. That’s what an LLM (Large Language Model) does.
-* To a **business owner**: You can think of them as engines that can draft reports, analyze long documents, summarize meetings, or even generate marketing content at scale—cutting both cost and time.
+* To a **business owner**: You can think of them as engines that can draft reports, analyze long documents, summarize meetings, or even generate marketing content at scale,cutting both cost and time.
 * To a **student or fresher**: It’s helpful to imagine them as a much smarter autocomplete. They’ve been trained on massive datasets, so they can predict the “next word” in a way that feels surprisingly natural, whether you’re writing code, a paragraph, or even a story.
 
 ---
 
-##  2. How Do LLMs Work (Architecture Basics)
+### **2. How Do LLMs Work (Architecture Basics)**
 
 At the core of most modern LLMs is the **Transformer architecture** (Vaswani et al., 2017). 
 Unlike older models that processed text one word at a time, transformers look at whole sequences in parallel and figure out which words matter most to each other. Here are the essentials: 
@@ -25,11 +26,13 @@ Unlike older models that processed text one word at a time, transformers look at
 
 That’s the backbone: a stack of transformer blocks working together, with **more layers = more power**.
 
-📖 Want to dig deeper? Microsoft has a great explainer here: Large Language Models Explained
+
+*Want to dig deeper? Microsoft has a great [course](https://learn.microsoft.com/en-us/training/modules/introduction-large-language-models/) on the same.*
+
 
 ---
 
-## 🔹 3. Types of LLMs
+### **3. Types of LLMs**
 
 * **Decoder-only (GPT-style)** → Text generation, chat, coding.
 * **Encoder-only (BERT-style)** → Text classification, embeddings, search.
@@ -38,11 +41,11 @@ That’s the backbone: a stack of transformer blocks working together, with **mo
 
 ---
 
-## 🔹 4. Accessing Open-Source LLMs on Hugging Face
+### **4. Accessing Open-Source LLMs on Hugging Face**
 
 Hugging Face hosts 100,000+ models. Some are fully open, others are **gated**.
 
-✅ To use **gated models** like Mistral or LLaMA:
+- To use **gated models** like Mistral or LLaMA:
 
 1. Visit the model’s page (e.g., [Mistral-7B-Instruct](https://huggingface.co/mistralai/Mistral-7B-Instruct-v0.1))
 2. Click **“Access repository”** and accept the license.
@@ -56,7 +59,7 @@ Hugging Face hosts 100,000+ models. Some are fully open, others are **gated**.
 
 ---
 
-## 🔹 5. Running a Free LLM (Google AI Studio)
+### **5. Running a Free LLM (Google AI Studio)**
 
 Instead of heavy Hugging Face models, you can start quickly with **Google AI Studio** → free API keys, fast responses.
 
@@ -90,8 +93,8 @@ print(response.text)
 
 ---
 
-## 🔹 6. Free LLM Resources Table
-# 🎓 Free & Fun LLM Access for Students
+### **6. Free LLM Resources Table**
+- **Free & Fun LLM Access for Students**
 
 | Platform        | Official Page                                | Tutorial/Setup Guide                                      | Quick Notes                      |
 |-----------------|---------------------------------------------|-----------------------------------------------------------|----------------------------------|
@@ -103,7 +106,7 @@ print(response.text)
 
 ---
 
-# 💼 Free LLM Tools for Business Owners
+- **Free LLM Tools for Business Owners**
 
 | Platform       | Official Page                                  | Setup & Docs                                              | Quick Notes                 |
 |----------------|------------------------------------------------|-----------------------------------------------------------|-----------------------------|
@@ -114,7 +117,7 @@ print(response.text)
 
 ---
 
-# 📚 Hands-On & Learning (For All)
+- **Hands-On & Learning (For All)**
 
 | Resource                  | Main Page                                                 | Description                          |
 |---------------------------|----------------------------------------------------------|--------------------------------------|
@@ -122,13 +125,13 @@ print(response.text)
 
 ---
 
-✨ **Just pick a platform, follow the quickstart, and you can chat or code with an LLM in minutes!** ✨
+*Just pick a platform, follow the quickstart, and you can chat or code with an LLM in minutes!*
 
 
 
 ---
 
-## 🔹 7. Limitations of Free LLMs
+### **7. Limitations of Free LLMs**
 
 * **Rate limits** → Free APIs (Google AI, Hugging Face) restrict daily usage.
 * **Model size** → Smaller free/open models may give weaker answers vs GPT-4/Gemini Pro.
@@ -137,7 +140,7 @@ print(response.text)
 
 ---
 
-## 📌 Teaser for Next Chapter
+###  Next Chapter
 
 Now that you know what LLMs are, how they work, and how to get free access, the next step is learning how to **talk to them effectively** — that’s where **Prompt Engineering** comes in.
 
