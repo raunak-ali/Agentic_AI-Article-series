@@ -1,5 +1,7 @@
 # Article 1 :Intro to Gen AI,LLMS and LangChain Frameworks
- ![Generative AI Diagram](https://drive.google.com/uc?export=view&id=1HEE3cUyZTwsChoNWW2KUktDiyy0I2gjq)
+<p align="center">
+  <img src="https://drive.google.com/uc?export=view&id=1HEE3cUyZTwsChoNWW2KUktDiyy0I2gjq" alt="Generative AI Diagram" width="400" height="500"/>
+</p>
 
 ## Chapter B:Introduction to LLMs And Free LLM Resources
 
