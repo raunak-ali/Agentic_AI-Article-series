@@ -1,10 +1,10 @@
----
+
 
 # Chapter 2: Introduction to LLMs And Free LLM Resources
 
----
 
-## 🔹 1. What Are LLMs (Large Language Models)?
+
+##  1. What Are LLMs (Large Language Models)?
 
 Imagine a system that doesn’t just store information like a database, but can converse, summarize, translate, write code, and even reason through problems. That’s what an LLM (Large Language Model) does.
 * To a **business owner**: You can think of them as engines that can draft reports, analyze long documents, summarize meetings, or even generate marketing content at scale—cutting both cost and time.
@@ -12,7 +12,7 @@ Imagine a system that doesn’t just store information like a database, but can 
 
 ---
 
-## 🔹 2. How Do LLMs Work (Architecture Basics)
+##  2. How Do LLMs Work (Architecture Basics)
 
 At the core of most modern LLMs is the **Transformer architecture** (Vaswani et al., 2017). 
 Unlike older models that processed text one word at a time, transformers look at whole sequences in parallel and figure out which words matter most to each other. Here are the essentials: 
@@ -76,7 +76,7 @@ Instead of heavy Hugging Face models, you can start quickly with **Google AI Stu
 from google import genai
 
 # The client gets the API key from the environment variable `GEMINI_API_KEY`.
-client = genai.Client(api_key="AIzaSyBEhOoTh2Iu2UzC1p8Kfz8pL4FxGQP1F_w")
+client = genai.Client(api_key="your_api_key")
 
 response = client.models.generate_content(
     model="gemini-2.5-flash", contents="Explain All about LLMS"
@@ -84,7 +84,9 @@ response = client.models.generate_content(
 print(response.text)
 ```
 
-👉 Example Notebook: [Google AI Colab Quickstart](https://colab.research.google.com/github/google-gemini/cookbook/blob/main/quickstarts/Quickstart.ipynb)
+👉 Example Notebooks: 
+1) [Using Hugging Face free Models -> Colab Quickstart](https://colab.research.google.com/drive/1rOm-FZ1WoS60U8vJ97-DZGa_6z4-RzKd?usp=sharing)
+1) [Using Google AI Model -> Colab Quickstart](https://colab.research.google.com/drive/1Sv1aD2MCNU06IiVoFWzcupFbp0EIN8-n?usp=sharing)
 
 ---
 
@@ -93,11 +95,11 @@ print(response.text)
 
 | Platform        | Official Page                                | Tutorial/Setup Guide                                      | Quick Notes                      |
 |-----------------|---------------------------------------------|-----------------------------------------------------------|----------------------------------|
-| **Hugging Face** | [Hugging Face Models](https://huggingface.co/models) | [FreeCodeCamp: How To Start](https://www.freecodecamp.org/news/get-started-with-hugging-face/) | Use online demos, Spaces, no install needed. Colab works too! [19] |
-| **ChatGPT (OpenAI, web)** | [ChatGPT](https://chat.openai.com) | [WhyTryAI Guide](https://www.whytryai.com/p/best-free-llms) | Just sign up and use it; no local resources required. [8] |
-| **Google Gemini AI Studio** | [Gemini Studio](https://ai.google.dev/gemini-api/) | [Gemini API Quickstart](https://ai.google.dev/gemini-api/docs/quickstart) | Run directly in browser or minimal code, free quota! [15] |
-| **Meta AI (Llama 3, web demo)** | [Meta.ai](https://www.meta.ai) | [WhyTryAI Guide](https://www.whytryai.com/p/best-free-llms) | Llama 3 demo free in supported regions. [8] |
-| **Free API Aggregators** | [Free LLM API Resource List](https://github.com/cheahjs/free-llm-api-resources) | See repo docs & links for setup | Direct links to many free LLM APIs![2] |
+| **Hugging Face** | [Hugging Face Models](https://huggingface.co/models) | [FreeCodeCamp: How To Start](https://www.freecodecamp.org/news/get-started-with-hugging-face/) | Use online demos, Spaces, no install needed. Colab works too! |
+| **ChatGPT (OpenAI, web)** | [ChatGPT](https://chat.openai.com) | [WhyTryAI Guide](https://www.whytryai.com/p/best-free-llms) | Just sign up and use it; no local resources required.|
+| **Google Gemini AI Studio** | [Gemini Studio](https://ai.google.dev/gemini-api/) | [Gemini API Quickstart](https://ai.google.dev/gemini-api/docs/quickstart) | Run directly in browser or minimal code, free quota!  |
+| **Meta AI (Llama 3, web demo)** | [Meta.ai](https://www.meta.ai) | [WhyTryAI Guide](https://www.whytryai.com/p/best-free-llms) | Llama 3 demo free in supported regions.  |
+
 
 ---
 
@@ -105,10 +107,10 @@ print(response.text)
 
 | Platform       | Official Page                                  | Setup & Docs                                              | Quick Notes                 |
 |----------------|------------------------------------------------|-----------------------------------------------------------|-----------------------------|
-| **Google Gemini API** | [Gemini API Main](https://ai.google.dev/gemini-api/) | [Gemini Quickstart](https://ai.google.dev/gemini-api/docs/quickstart) <br> [AI Studio Guide](https://ai.google.dev/gemini-api/docs/ai-studio-quickstart) | Generous free tier, ready for business use.[15][20] |
-| **Vercel AI Gateway** | [AI Gateway](https://vercel.com/ai/gateway) | [Getting Started](https://vercel.com/docs/ai-gateway/getting-started) <br> [API Authentication](https://vercel.com/docs/ai-gateway/authentication) | One-stop API hub for many models.[17][21] |
-| **Groq API** | [Groq Console](https://console.groq.com) | [Groq Python SDK](https://github.com/groq/groq-python) <br> [Client Libraries](https://console.groq.com/docs/libraries) | Lightning-fast, monthly free tokens.[18][22] |
-| **Hugging Face (commercial ok)** | [Hugging Face Models](https://huggingface.co/models) | [FreeCodeCamp Setup](https://www.freecodecamp.org/news/get-started-with-hugging-face/) <br> [Commercial Model List](https://github.com/eugeneyan/open-llms) | Many models with permissive licenses.[16][19] |
+| **Google Gemini API** | [Gemini API Main](https://ai.google.dev/gemini-api/) | [Gemini Quickstart](https://ai.google.dev/gemini-api/docs/quickstart) <br> [AI Studio Guide](https://ai.google.dev/gemini-api/docs/ai-studio-quickstart) | Generous free tier, ready for business use. |
+| **Vercel AI Gateway** | [AI Gateway](https://vercel.com/ai/gateway) | [Getting Started](https://vercel.com/docs/ai-gateway/getting-started) <br> [API Authentication](https://vercel.com/docs/ai-gateway/authentication) | One-stop API hub for many models. |
+| **Groq API** | [Groq Console](https://console.groq.com) | [Groq Python SDK](https://github.com/groq/groq-python) <br> [Client Libraries](https://console.groq.com/docs/libraries) | Lightning-fast, monthly free tokens. |
+| **Hugging Face (commercial ok)** | [Hugging Face Models](https://huggingface.co/models) | [FreeCodeCamp Setup](https://www.freecodecamp.org/news/get-started-with-hugging-face/) <br> [Commercial Model List](https://github.com/eugeneyan/open-llms) | Many models with permissive licenses.|
 
 ---
 
