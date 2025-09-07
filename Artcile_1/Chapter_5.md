@@ -1,10 +1,9 @@
----
+# Article 1 :Intro to Gen AI,LLMS and LangChain Frameworks
+ ![Generative AI Diagram](https://drive.google.com/uc?export=view&id=1nLrHYcZ4-pea9MBU91p7kq9gAWjy5vQR)
 
-# Chapter 5: Introduction to LangChain & LangGraph
+## Chapter 5: Introduction to LangChain & LangGraph
 
----
-
-## 🔹 1. Why LangChain?
+###  1. Why LangChain?
 
 LangChain is one of the most widely adopted frameworks for building **LLM-powered applications**. While LLMs on their own can generate text, LangChain connects them to:
 
@@ -12,39 +11,39 @@ LangChain is one of the most widely adopted frameworks for building **LLM-powere
 * **Memory** (short-term & long-term).
 * **Chains & Agents** (structured multi-step reasoning).
 
-👉 Think of it as the **glue layer** between an LLM and the real world.
+ Think of it as the **glue layer** between an LLM and the real world.
 
-📖 Official Docs: [LangChain Documentation](https://python.langchain.com/docs/introduction/)
+ *Official Docs*: [LangChain Documentation](https://python.langchain.com/docs/introduction/)
 
 ---
 
-## 🔹 2. What About LangGraph?
+###  2. What About LangGraph?
 
 LangGraph is an extension built by the same team, focused on **agent workflows**.
 Where LangChain gives you chains and tool usage, **LangGraph adds state machines and graphs** — ideal for orchestrating **multi-step or multi-agent systems**.
 
-👉 In short:
+-> In short:
 
 * **LangChain** → Great for prototyping and connecting models.
 * **LangGraph** → Great for scaling to real-world, reliable agent systems.
 
-📖 Official Docs: [LangGraph Documentation](https://python.langchain.com/docs/langgraph)
+*Official Docs*: [LangGraph Documentation](https://python.langchain.com/docs/langgraph)
 
 ---
 
-## 🔹 3. Why This Tutorial Uses LangChain And LangGraph
+###  3. Why This Tutorial Uses LangChain And LangGraph
 
 In this series, our focus is **Agentic AI**. LangChain & LangGraph give us:
 
-* ✅ **Rapid prototyping** (easy chains, tools, prompts).
-* ✅ **Production patterns** (memory, state management, graphs).
-* ✅ **Community support** (huge ecosystem, tutorials, integrations).
+*  **Rapid prototyping** (easy chains, tools, prompts).
+*  **Production patterns** (memory, state management, graphs).
+*  **Community support** (huge ecosystem, tutorials, integrations).
 
 They’re not the only option, but they balance **beginner-friendliness** and **professional depth**.
 
 ---
 
-## 🔹 4. Alternatives You Should Know
+### 4. Alternatives You Should Know
 
 Depending on your use case, you might explore:
 
@@ -57,15 +56,15 @@ Each has trade-offs, but LangChain remains the most versatile entry point.
 
 ---
 
-## 🔹 5. Limitations of LangChain / LangGraph
+### 5. Limitations of LangChain / LangGraph
 
-* ⚠️ **Complexity** → Large learning curve for beginners beyond simple chains.
-* ⚠️ **Performance** → Agents can be slow/expensive if not optimized (tool overuse, excessive prompts).
-* ⚠️ **Still evolving** → APIs change quickly; keeping up with updates is necessary.
+*  **Complexity** → Large learning curve for beginners beyond simple chains.
+*  **Performance** → Agents can be slow/expensive if not optimized (tool overuse, excessive prompts).
+*  **Still evolving** → APIs change quickly; keeping up with updates is necessary.
 
 ---
 
-## 🔹 6. Prerequisites
+###  6. Prerequisites
 
 Before we jump into our practicals in the next chapter , let’s talk **prerequisites**.
 
@@ -82,7 +81,7 @@ To follow along with LangChain implementations, you should ideally be comfortabl
 
 ---
 
-## 📌 Teaser for Next Chapter
+##  Teaser for Next Chapter
 
 Now that you’ve got LangChain + LangGraph installed and working with Google AI, in the **next article we’ll build our very first Agent from using the Langchian Library**.
 
