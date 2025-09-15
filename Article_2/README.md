@@ -1,22 +1,12 @@
 # Article 2: Single Agent Workflow — From LLMs to LangGraph
 ---
-## 1. Recap & Transition
+## 1. What is LangGraph & Why It’s a Step Towards Agentic AI 
 
-Quick refresher on what we covered in Article 1 (prompting → agents → LangChain basics).
 
-Why we now need LangGraph to move beyond linear chains.
 
-## 2. What is LangGraph?
+## 2.Agents Using LangGraph
 
-Define LangGraph: framework built on LangChain for stateful, graph-based workflows.
 
-Explain why it matters: moves from simple LLM calls → structured reasoning graphs.
-
-Difference between:
-
-LangChain LLM Chains (linear, stateless).
-
-LangGraph Graphs (nodes, states, edges, branching logic, persistence).
 
 ## 3. Core Concepts of LangGraph (Deep Dive)
 
@@ -34,31 +24,10 @@ Edge = flow from input → LLM → output.
 
 State = stores the original + translated text.
 
-## 4. Why LangGraph is a Step Towards Agentic AI
+## 4.  LangGraph Studio (Hands-on Intro)
 
-Graph structure = decision-making + reasoning flow, not just text prediction.
 
-Agents become composable building blocks inside graphs.
-
-Enables:
-
-Multi-step reasoning.
-
-Long-term memory + persistence.
-
-Multi-agent collaboration.
-
-## 5. LangGraph Studio (Hands-on Intro)
-
-Explain LangGraph Studio UI.
-
-Why visualization is powerful (see your agents/nodes/edges live).
-
-Use case: debugging workflows + collaboration in teams.
-
-Link official docs.
-
-## 6. Hands-On Setup
+## 5. Hands-On Setup
 
 Prerequisites (Python, pip/venv, API key from Google AI).
 

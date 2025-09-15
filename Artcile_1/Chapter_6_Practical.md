@@ -1,146 +1,200 @@
-# Article 1 :Intro to Gen AI,LLMS and LangChain Frameworks(Part F:The Practical)
 
-## Chapter F: Practical LangChain Demo with Google Gemini & DuckDuckGo
----
-This tutorial walks you through building a **LangChain-powered app** that connects Google’s **Gemini model** with a **search tool (DuckDuckGo)**.  
-We’ll cover prerequisites, installation, and why each step is needed.
 
----
+# **Gen AI-Powered HR Candidate & Role Insights — A Practical LangChain Demo**
 
-###  Prerequisites
-Before starting, make sure you have:
-- Python 3.8 or higher
-- A Google API Key (get it from [Google AI Studio](https://ai.google.dev/))
-- Basic knowledge of Python
+## **Intro: Why Automate HR Research?**
 
----
+Buzzwords aside, the day-to-day reality of HR means endless Googling, comparing candidate profiles and job requirements, and manually building up shortlists.   
+Instead, what if you could ask a question like *“Best fit for a Product Manager role in Mumbai ?”*—and let an AI tool scour the web, summarize strengths, skills, and job-market needs, and instantly give you an actionable verdict?
 
-###  Installation
+This is exactly what we build in this tutorial: a real, working pipeline using LangChain, Google Gemini (free API), and DuckDuckGo search—all glued together with proper chains so you can clearly see each step. Perfect for HR professionals, GenAI learners, and anyone wanting to explore practical LLM app design.
 
-We’ll install the required packages:  
+[**Google collab notebook**](https://colab.research.google.com/drive/1x3FXno8bOgQoFwXEPiPbTESJFMSGMPjQ?usp=sharing)
 
-```bash
-pip install -U langchain langchain-google-genai langchain-community duckduckgo-search
-````
+***
 
-* **langchain** → the framework to chain LLMs with tools.
-* **langchain-google-genai** → connector for Google Gemini.
-* **langchain-community** → community-maintained integrations (like DuckDuckGo).
-* **duckduckgo-search** → enables web search from LangChain.
+## **Project Flow Diagram (Text Description)**
 
----
+**INSERT IMAGE HERE**
 
-###  Setting Up API Keys
+***
+
+## **Jupyter Notebook: Step-by-Step with Explanations**
+
+***
+
+### **Cell 1: Install All Required Packages**
+
+```python
+!pip install -U langchain langchain-google-genai langchain-community duckduckgo-search
+```
+
+**Explanation:**  
+We install the latest versions of the core libraries for our pipeline:
+
+- **langchain**: Orchestration of all LLM chains, agents, and tools.
+- **langchain-google-genai**: Seamlessly integrates Google’s Gemini LLM with LangChain.
+- **langchain-community**: Extra integrations, including tools and data connectors.
+- **duckduckgo-search**: Provides free web search functionality, crucial for fetching real-world, up-to-date info on candidates or job skills.
+
+***
+
+### **Cell 2: Set up Gemini API Key**
 
 ```python
 import os
-
-# put your key here (replace with your actual key)
-os.environ["GOOGLE_API_KEY"] = "your_api_key_here"
+os.environ["GOOGLE_API_KEY"] = "" # <--- YOUR KEY GOES HERE
 ```
 
-* Storing your key in `os.environ` makes it secure and reusable across code.
-* You can also set it in your system environment variables or Colab secrets.
+**Explanation:**  
+Here you securely save your Gemini API key in your Python environment—so the LLM can authenticate and run.  
+**Pro Tip:** Always keep this key blank or in environment variables for sharing notebooks (never hard-code the real value publicly)!
 
----
+***
 
-###  Loading the Gemini Model
+### **Cell 3: Import LangChain Libraries and Helpers**
 
 ```python
+from langchain.llms.base import LLM
+from langchain.callbacks.manager import CallbackManagerForLLMRun
 from langchain_google_genai import ChatGoogleGenerativeAI
-
-# use the free Gemini model
-llm = ChatGoogleGenerativeAI(model="gemini-1.5-flash")
-```
-
-* We’re using **Gemini 1.5 Flash**, which is free and optimized for quick responses.
-* This acts as our **core LLM** that will generate answers.
-
----
-
-###  Adding a Search Tool
-
-```python
 from langchain_community.tools import DuckDuckGoSearchResults
-
-# search tool
-search = DuckDuckGoSearchResults()
+from langchain.prompts import PromptTemplate, ChatPromptTemplate
+from langchain.chains import LLMChain, SimpleSequentialChain
 ```
 
-* This tool allows the LLM to **fetch real-time info** from DuckDuckGo.
-* It’s useful when the model needs **up-to-date knowledge** beyond its training data.
+**Explanation:**  
+- The core LangChain classes/components.
+- Gemini’s LLM connector.
+- DuckDuckGo tool for free search.
+- Prompt template classes to instruct both tools and LLMs.
+- LLMChain and SimpleSequentialChain for composable pipeline steps.
 
----
+***
 
-###  Creating a Prompt Template
+### **Cell 4: Build a Custom LLM Wrapper for DuckDuckGo**
 
 ```python
-from langchain.prompts import ChatPromptTemplate
+class DuckDuckGoLLM(LLM):
+    def _call(self, prompt, stop=None, run_manager: CallbackManagerForLLMRun = None, **kwargs):
+        search = DuckDuckGoSearchResults()
+        return search.run(prompt)
+    @property
+    def _llm_type(self):
+        return "custom_duckduckgo"
+```
 
-prompt = ChatPromptTemplate.from_template(
-    "Search the web and summarize the latest news about {topic}."
+**Explanation:**  
+- LangChain encourages each “chain” to look like an LLM (even if it’s a tool).
+- We make a minimal subclass that “pretends” to be an LLM but simply calls DuckDuckGo, returning a string of search results.
+- This allows us to wire the search step right into a `SimpleSequentialChain` with no hacks!
+
+***
+
+### **Cell 5: Get Your HR User Input**
+
+```python
+
+target_role = "Product Manager"
+location = "Mumbai"
+
+
+search_query = (
+    f'"{location}" ("{target_role}" OR "Senior {target_role}") site:linkedin.com/in '
+    'resume projects skills 2025'
 )
 ```
 
-* `ChatPromptTemplate` lets you **structure prompts** dynamically.
-* The `{topic}` placeholder means we can reuse the same template for any topic.
+**Explanation:**  
+- The HR user enters a Location and Target job role.
+- Both are merged into a single, smart query—for richer, contextual web results (Location  + latest skill demands).
 
----
+***
 
-###  Building Chains
+### **Cell 6: Define the Search Chain**
 
 ```python
-from langchain.chains import LLMChain, SequentialChain
+search_prompt = PromptTemplate.from_template("{query}")
 
-# first chain: search results
-search_chain = LLMChain(llm=llm, prompt=prompt)
-
-# sequential chain: combines search + LLM summarization
-overall_chain = SequentialChain(
-    chains=[search_chain],
-    input_variables=["topic"],
-    output_variables=["text"]
+duckduck_llm = DuckDuckGoLLM()
+search_chain = LLMChain(
+    llm=duckduck_llm,
+    prompt=search_prompt,
+    output_key="search_results"
 )
 ```
 
-* `LLMChain` connects a model with a specific prompt.
-* `SequentialChain` lets you **stack multiple chains together** (e.g., search → summarize).
-* This modular design makes your pipeline scalable.
+**Explanation:**  
+- Sets up the first LangChain chain—using your custom LLM and a simple prompt template that inserts your full HR query.
+- The chain will take the HR query, perform the DuckDuckGo search, and output free-text search results as `'search_results'`.
 
----
+***
 
-###  Running the Demo
+### **Cell 7: Define the Gemini Summarizer Chain**
 
 ```python
-result = overall_chain({"topic": "AI in healthcare"})
+
+gemini_llm = ChatGoogleGenerativeAI(model="gemini-1.5-flash")
+
+summarize_prompt = ChatPromptTemplate.from_template(
+    f"You're an HR assistant. "
+    "Given these web search results (candidate info and top skills):\n{search_results}\n\n For all the different Candidiates "
+    f"TARGET ROLE IS {target_role}"
+    "Summarize in:\n"
+    "- List all the candidates with thier links from the info "
+    "- A list of each candidate's main strengths\n"
+    "- Key candidates highlights matching the role\n"
+    "- A ready-to-copy shortlist or not recommendation for busy HR.\n"
+    "Use clear, up-to-date professional language."
+)
+summarize_chain = LLMChain(
+    llm=gemini_llm,
+    prompt=summarize_prompt
+)
+
+```
+
+**Explanation:**  
+- Sets up step two, using Gemini to process the fetched search results.
+- The prompt is engineered (drawing from good prompt techniques) to give:
+    - Bullet points of strengths
+    - Match to role
+    - Quick “shortlist or not” recommendation
+- Designed to appeal to HR and to demo chained, composable LLM integration.  
+- To learn more about *Prompt Engineering* used in thh above code snippet and make your own custom accurate prompts u can refer this [**Guide**](https://dev.to/raunaklallala/article-1-intro-to-gen-aillms-and-langchain-frameworkspart-c-48ij)
+***
+
+### **Cell 8: Combine Both Chains and Run!**
+
+```python
+overall_chain = SimpleSequentialChain(
+    chains=[search_chain, summarize_chain],
+    verbose=True
+)
+
+result = overall_chain.run(search_query)
 print(result)
 ```
 
-* Input: `"AI in healthcare"`
-* Process:
+**Explanation:**  
+- `SimpleSequentialChain` connects both steps so the output of `search_chain` becomes the input to `summarize_chain`.
+- The process is fully modular, each chain is defined, testable, and reusable on its own!
+- You pass your overall query and get back Gemini’s HR-friendly recommendation—just like a real hiring assistant would do.
 
-  1. Search latest info using DuckDuckGo
-  2. Gemini summarizes findings
-* Output: A clean summary of current news!
+***
 
----
+## **Wrap-Up**
 
-###  Why This Matters
+- **What did we build?**  
+  An honest, simple LangChain pipeline:  
+  _User input_ → _Search tool_ → _LLM summary_ → _Instant, actionable candidate verdict!_
 
-* LangChain simplifies combining **LLMs + external tools**.
-* Gemini provides **fast, accurate generation**.
-* DuckDuckGo adds **real-time context**.
+- **What does this show off?**  
+  - True, composable multi-step processing in LangChain
+  - Prompt engineering best practices for HR
+  - How to blend web tools and LLMs, even without complicated agent code
 
-This workflow is perfect for building **research assistants, news aggregators, or knowledge tools**.
+- **Where to go next?**  
+  Try running with more candidate/role inputs, extending with another Gemini step, or producing a PDF/CSV for your HR team!
 
----
-
-###  Next Steps
-
-* Add more tools (e.g., calculators, APIs).
-* Explore memory features in LangChain for multi-turn conversations.
-* Deploy your chain into a web app using **Streamlit** or **FastAPI**.
-
----
-
-->You now have a **working LangChain pipeline** with Google Gemini + DuckDuckGo search!
+***
